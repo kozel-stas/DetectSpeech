@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DetectSpeech</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron text-center">
+    <h2>Определение языка.</h2>
+    <p>Выберите файл формата pdf и нажмите кнопку "Submit" для определения языка документа.</p>
+    <form>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+    </form>
+    <button type="button" class="btn btn-light" onclick="requestLanguage()" style="margin: 20px">Submit file.</button>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            $(this).siblings(".custom-file-label").addClass("selected").html($(this).val().split("\\").pop());
+        });
+    </script>
+</div>
+
+<div class="container">
+    <div class="row" id="row_container">
+    </div>
+</div>
+
+</body>
+<script src="/basic.js"></script>
+</html>
